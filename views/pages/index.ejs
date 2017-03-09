@@ -1,0 +1,36 @@
+<%- include('../partials/header') -%>
+
+
+<%- include('../partials/nav') -%>
+
+
+	<% if(!user){ %>
+		<a href="/login">Login</a>
+  	<a href="/register">Register</a>
+	<% } else {  %>
+		<p id="logged_in_user"> You're logged in as <%= user.username %> </p>
+ 	<% } %>
+  <div class="row">
+    <div class="form-wrapper">
+      <h4 class="form-title slack_auth_form_title">Default Slack Channel</h4>
+      <select id="channels" name="" class=""></select>
+      <button id="default_channel">Set Default</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="property_form" class="form-wrapper">
+      <h4 class="form-title hs_auth_form_title">Default Lead Properties</h4>
+      <form id="properties_form">
+        <div id="default_properties"></div>
+        <div id="all_properties"></div>
+        <div class="button-wrapper">
+          <button id="default_properties">Set Defaults</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<%- include('../partials/footer') -%>
+
+

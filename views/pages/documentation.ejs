@@ -1,0 +1,80 @@
+<%- include('../partials/header') -%>
+
+
+
+
+
+	<% if(!user){ %>
+    <%- include('../partials/login_nav') -%>
+	<% } else {  %>
+    <%- include('../partials/nav') -%>
+		<p id="logged_in_user"> You're logged in as <%= user.username %> </p>
+ 	<% } %>
+  <div class="doc row">
+    <h2>Documentation</h2>
+    <p>HubSlacker is an app for sending realtime lead notifications from HubSpot directly to your Slack team.</p>
+    <section class="contents">
+    <h4>Contents</h4>
+      <ul>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#auth">Authorize Your Accounts</a>
+          <ul>
+            <li><a href="#hs_auth">Authorize HubSpot</a></li>
+            <li><a href="#slack_auth">Authorize Slack</a></li>
+            <li><a href="#org_id">Choose an Organization ID &amp; Secret</a></li>
+          </ul>
+        </li>
+        <li><a href="#settings">HubSlacker Settings</a>
+          <ul>
+            <li><a href="#default_channel">Slack - Default Channel</a></li>
+            <li><a href="#default_properties">HubSpot - Default Properties</a></li>
+          </ul>
+        </li>
+        <li><a href="#notify">Lead Notifications</a></li>
+        <li><a href="#git">HubSlacker - Git Repo</a></li>
+      </ul>
+    </section>
+  </div>
+  <div class="doc row">
+    <h4 id="requirements">Requirements</h4>
+    <ul class="how-to-list">
+      <p>In order to use HubSlacker you must have an active Slack account, and your Administrator must grant you permission to add integrations to your team.</p> <p> Additionally, you must have a subscription to HubSpot's marketing platform and be using either the Professional or Enterprise Edition of the software. You can locate your current Edition tier in HubSpot by navigating to the "Settings" page, from the Account Menu<img class="how-to-img" src="/img/account_menu.png">then clicking "Company &amp; Billing Info" in the left hand sidebar.<img class="img-lrg" src="/img/hs_settings.png"></p>
+      <p>If you do not already have an account with HubSlacker, navigate to the registration page and <a class="hyperlink" href="/register">create a new account.</a></p>
+    </ul>
+  </div>
+  <div class="doc row">
+    <h4 id="auth">Authorize your accounts</h4>
+    <ul class="how-to-list">
+      <li>After you have logged in to HubSlacker, navigate to the <a class="hyperlink" href="/account">accounts</a> page to authorize HubSpot and Slack.</li>
+      <li id="hs_auth">Authorize HubSpot by entering your Portal ID into the modal that says 'Authorize HubSpot.' <img class="how-to-img" src="/img/authorize_HS.png"> Your Portal ID is accessible in the top right hand corner of the HubSpot app whenever you are logged in.<img class="how-to-img" src="/img/HID.png"> You will be redirected to HubSpot and prompted to log in to your account, authorizing HubSlacker to receive notifications and view your contact properties.<img class="how-to-img" src="/img/HS_Oauth.png"></li>
+      <li id="slack_auth">Authorize Slack simply by clicking 'Authorize' and following the onscreen prompts.<img class="how-to-img" src="/img/Authorize_Slack.png"><img class="how-to-img" src="/img/Slack_Oauth.png"></li>
+      <li id="org_id">Finally, create an Organization ID and Secret.  <img class="how-to-img" src="/img/Org_ID.png"><strong>Please Note: </strong>This should not be your login credentials for Slack, HubSpot, or HubSlacker itself. The Organization ID &amp; Secret will be used as a means of routing lead notifications from HubSpot to Slack.  When you click 'Submit' HubSlacker will create a new workflow in HubSpot called HubSlacker, which is responsible for notifying HubSpot of new form submissions.</li>
+    </ul>
+  </div>
+  <div class="doc row">
+    <h4 id="settings">HubSlacker Settings</h4>
+    <ul class="how-to-list">
+      <li id="default_channel">Select a default Slack channel where you would like new lead notifications to be posted.<img class="how-to-img"  src="/img/Slack_Channel.png"></li>
+      <li><strong>Please Note: </strong> For the time being it is not possible to send lead notifications directly to a user.</li>
+      <li id="default_properties">Select the default HubSpot properties that you want to appear in lead notifications. <img class="img-lrg" src="/img/default_properties.png"></li>
+    </ul>
+  </div>
+  <div class="doc row">
+    <h4 id="notify">HubSlacker Lead Notifications</h4>
+    <ul class="how-to-list">
+      <li>Now that everything is hooked up, you're ready to get lead notifications in Slack!  Here's what you can expect:<img class="img-lrg" src="/img/notification.png"></li>
+    </ul>
+  </div>
+  <div class="doc row">
+    <h4 id="git">HubSlacker - GitHub Repo</h4>
+    <ul class="how-to-list">
+      <li>HubSlacker is a free app, and is maintained by volunteers. If you'd like to contribute, please fork the repository and submit PRs.</li>
+      <li>Visit HubSlacker on <a class="hyperlink" href="https://github.com/fairchildseb/hubslacker" target="_blank">Github</a></li>
+    </ul>
+  </div>
+
+  <a href="#top" ><i class="fa fa-chevron-up fa-3x to-top-arrw" aria-hidden="true"></i></a>
+
+<%- include('../partials/footer') -%>
+
+

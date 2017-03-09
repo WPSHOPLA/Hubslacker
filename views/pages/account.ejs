@@ -1,0 +1,61 @@
+<%- include('../partials/header') -%>
+
+
+<%- include('../partials/nav') -%>
+
+<% if(!user){ %>
+	<a href="/login">Login</a>
+	<a href="/register">Register</a>
+<% } else {  %>
+	<p id="logged_in_user"> You're logged in as <%= user.username %> </p>
+<% } %>
+
+<div class="row">
+	<div class="form-wrapper">
+		<% if(Oauth.hs === true) { %>
+			<h4 class="form-title hs_auth_form_title">HubSpot is Connected!</h4>
+			<form action="/hs_auth" method="POST">
+				<input name="hubspotDisconnect" value="true" hidden>
+				<button type="submit">Disconnect</button>
+			</form>
+		<% } else { %>
+			<h4 class="form-title hs_auth_form_title">Authorize HubSpot</h4>
+			<form action="/hs_auth" method="POST">
+			  <input type='text' name="portalId" placeholder="Portal Id">
+			  <input type="text" name="authorize" value="true" hidden>
+			  <button type="submit" class="form-btn">Authorize</button>
+			</form>
+		<% } %>
+	</div>
+</div>
+<div class="row">
+	<div class="form-wrapper">
+		<% if(Oauth.slack === true) { %>
+			<h4  class="form-title slack_auth_form_title">Slack is Connected!</h4>
+			<form action="/slack_auth" method="POST">
+				<input name="slackDisconnect" value="true" hidden>
+				<button type="submit">Disconnect</button>
+			</form>
+		<% } else { %>
+			<h4 class="form-title slack_auth_form_title">Authorize Slack</h4>
+			<form action="/slack_auth" method="POST">
+				<input type="text" name="authorize" value="true" hidden>
+			  <button type="submit" class="form-btn">Authorize</button>
+			</form>
+		<% } %>
+	</div>
+</div>
+
+<div class="row">
+    <div class="form-wrapper">
+      <h4 id="org_id_h4" class="form-title info">Organization ID</h4>
+      <span id="error"></span>
+      <form id="org_id">
+        <input type="text" name="username" placeholder="Organization Name">
+        <input type="password" name="password" placeholder="Organization Secret">
+        <button type="submit" class="form-btn">Submit</button>
+      </form>
+    </div>
+</div>
+<%- include('../partials/footer') -%>
+

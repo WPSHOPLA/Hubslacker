@@ -1,0 +1,16 @@
+<%- include('../partials/header') -%>
+
+<%- include('../partials/login_nav') -%>
+
+<div class="row">
+	<div class="form-wrapper">
+	<form role="form" action="/login" method="post">
+	  <h4 class="form-title">Login</h4>
+	  <input type='text' name="username" placeholder='Username'>
+	  <input type='password' name="password" placeholder='Password'>
+	  	<button class="form-btn" type="submit">Submit</button>
+	</form>
+	</div>
+</div>
+<%- include('../partials/footer') -%>
+
